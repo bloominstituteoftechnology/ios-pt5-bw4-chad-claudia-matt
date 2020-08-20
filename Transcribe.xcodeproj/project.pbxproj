@@ -60,14 +60,16 @@
 		6329FEFE24ECBD5E005A4DE9 /* Transcribe */ = {
 			isa = PBXGroup;
 			children = (
+				6329FF0D24ECBD5F005A4DE9 /* Info.plist */,
 				6329FEFF24ECBD5E005A4DE9 /* AppDelegate.swift */,
 				6329FF0124ECBD5E005A4DE9 /* SceneDelegate.swift */,
-				6329FF1324ECBE7E005A4DE9 /* Note.swift */,
-				6329FF1524ECBF46005A4DE9 /* NoteController.swift */,
-				6329FF0324ECBD5E005A4DE9 /* ContentView.swift */,
 				6329FF0524ECBD5F005A4DE9 /* Assets.xcassets */,
+				C9D6A0B124EE106300AEEE0B /* Models */,
+				C9D6A0B224EE107300AEEE0B /* ModelControllers */,
+				C9D6A0B324EE108000AEEE0B /* MainViews */,
+				C9D6A0B424EE108C00AEEE0B /* SubViews */,
+				C9D6A0B524EE109500AEEE0B /* Extensions */,
 				6329FF0A24ECBD5F005A4DE9 /* LaunchScreen.storyboard */,
-				6329FF0D24ECBD5F005A4DE9 /* Info.plist */,
 				6329FF0724ECBD5F005A4DE9 /* Preview Content */,
 			);
 			path = Transcribe;
@@ -79,6 +81,44 @@
 				6329FF0824ECBD5F005A4DE9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9D6A0B124EE106300AEEE0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6329FF1324ECBE7E005A4DE9 /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C9D6A0B224EE107300AEEE0B /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6329FF1524ECBF46005A4DE9 /* NoteController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		C9D6A0B324EE108000AEEE0B /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				6329FF0324ECBD5E005A4DE9 /* ContentView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		C9D6A0B424EE108C00AEEE0B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		C9D6A0B524EE109500AEEE0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
