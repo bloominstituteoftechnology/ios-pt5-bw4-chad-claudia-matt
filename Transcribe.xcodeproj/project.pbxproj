@@ -16,6 +16,7 @@
 		6329FF0C24ECBD5F005A4DE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6329FF0A24ECBD5F005A4DE9 /* LaunchScreen.storyboard */; };
 		6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1324ECBE7E005A4DE9 /* Note.swift */; };
 		6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1524ECBF46005A4DE9 /* NoteController.swift */; };
+		C9D6A0B724EE120600AEEE0B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6A0B624EE120600AEEE0B /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6329FF0D24ECBD5F005A4DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6329FF1324ECBE7E005A4DE9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6329FF1524ECBF46005A4DE9 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
+		C9D6A0B624EE120600AEEE0B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		C9D6A0B424EE108C00AEEE0B /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				C9D6A0B624EE120600AEEE0B /* CardView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				6329FF0224ECBD5E005A4DE9 /* SceneDelegate.swift in Sources */,
 				6329FF0424ECBD5E005A4DE9 /* ContentView.swift in Sources */,
 				6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */,
+				C9D6A0B724EE120600AEEE0B /* CardView.swift in Sources */,
 				6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
