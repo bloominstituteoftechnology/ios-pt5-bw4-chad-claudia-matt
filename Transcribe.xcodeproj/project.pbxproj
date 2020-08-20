@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2CDB9924EE208D002B435D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CDB9824EE208D002B435D /* DetailView.swift */; };
 		6329FF0024ECBD5E005A4DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FEFF24ECBD5E005A4DE9 /* AppDelegate.swift */; };
 		6329FF0224ECBD5E005A4DE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF0124ECBD5E005A4DE9 /* SceneDelegate.swift */; };
 		6329FF0424ECBD5E005A4DE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF0324ECBD5E005A4DE9 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2CDB9824EE208D002B435D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6329FEFC24ECBD5E005A4DE9 /* Transcribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transcribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6329FEFF24ECBD5E005A4DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6329FF0124ECBD5E005A4DE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				6329FF0324ECBD5E005A4DE9 /* ContentView.swift */,
+				3A2CDB9824EE208D002B435D /* DetailView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6329FF0024ECBD5E005A4DE9 /* AppDelegate.swift in Sources */,
+				3A2CDB9924EE208D002B435D /* DetailView.swift in Sources */,
 				6329FF0224ECBD5E005A4DE9 /* SceneDelegate.swift in Sources */,
 				6329FF0424ECBD5E005A4DE9 /* ContentView.swift in Sources */,
 				6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */,
