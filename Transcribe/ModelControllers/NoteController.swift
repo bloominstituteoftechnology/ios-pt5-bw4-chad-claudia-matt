@@ -12,9 +12,9 @@ class NoteController: ObservableObject {
 
     var previewNotes: [Note] {
         [
-            Note(title: "Test 1", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
-            Note(title: "Test 2", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
-            Note(title: "Test 3", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
+//            Note(title: "Test 1", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
+//            Note(title: "Test 2", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
+//            Note(title: "Test 3", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: ""),
         ]
     }
 }
