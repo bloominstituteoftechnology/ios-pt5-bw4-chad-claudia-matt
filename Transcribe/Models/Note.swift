@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Note: Identifiable {
     let id = UUID()
     let title: String
     let bodyText: String
     let audioFilename: String
+    let color: Color
 }
