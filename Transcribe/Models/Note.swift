@@ -10,16 +10,9 @@ import Foundation
 import SwiftUI
 
 struct Note: Identifiable {
-<<<<<<< HEAD
     let id = UUID()
     var title: String
     var bodyText: String
     let audioFilename: String
     let color: Color
-=======
-    var id = UUID()
-    var title: String
-    var bodyText: String
-    var audioFilename: String
->>>>>>> Text is now editable
 }
