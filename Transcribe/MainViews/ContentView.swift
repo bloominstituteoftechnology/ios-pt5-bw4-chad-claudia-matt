@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
 
     @EnvironmentObject var noteController: NoteController
+    @EnvironmentObject var transcribeData: TranscribeData
 
     var body: some View {
         NavigationView {
@@ -19,13 +20,16 @@ struct ContentView: View {
                     Text("Title")
                     HStack { Spacer() }
                     ForEach(noteController.previewNotes) { note in
-                        NavigationLink(destination: Text(note.bodyText)) {
+                        NavigationLink(destination: DetailView(note: note)) {
                             Text(note.title)
+                            
                         }
                     }
                 }
                 .border(Color.black)
-            }
+            }.navigationBarTitle("Transcribe")
+            .listStyle(GroupedListStyle())
+            //.environmentObject(self.transcribeData)
         }
     }
 }
