@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.editMode) var mode
+    @EnvironmentObject var transcribeData: TranscribeData
+    @State var note: Note
+    @State private var editText = false
+    
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                EditButton()
+            }
             ZStack(alignment: .bottomTrailing) {
                 Image("soundWave")
                     .resizable()
@@ -29,33 +38,40 @@ struct DetailView: View {
                 }
             }
             ZStack(alignment: .bottomTrailing) {
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-                    .padding()
-                HStack {
-                    Button(action: {
-                        // Edit Text
-                    }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.headline)
-                            .padding(10)
-                            .background(Color.black)
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .offset(x: -5, y: 5)
+                if self.mode?.wrappedValue == .inactive {
+                    Text(note.bodyText)
+                        .padding()
+                    HStack {
+                        Button(action: {
+                            // Edit Text
+                            self.editText.toggle()
+                        }) {
+                            Image(systemName: "pencil")
+                                .font(.headline)
+                                .padding(10)
+                                .background(Color.black)
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .offset(x: -5, y: 5)
+                        }
+                        Button(action: {
+                            // Share
+                        }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.headline)
+                                .padding(10)
+                                .background(Color.black)
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .offset(x: -5, y: 5)
+                        }.sheet(isPresented: $editText) {
+                            EditText(note: self.$note)
+                        }
                     }
-    
-                    Button(action: {
-                        // Edit Text
-                    }) {
-                        Image(systemName: "pencil")
-                            .font(.headline)
-                            .padding(10)
-                            .background(Color.black)
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .offset(x: -5, y: 5)
-                    }
+                } else {
+                    EditText(note: $note)
                 }
+                
                 
             }
             
@@ -68,12 +84,12 @@ struct DetailView: View {
                     .frame(width: 60, height: 60)
             }
         }
-        .navigationBarTitle(Text("Title"), displayMode: .inline)
+        .navigationBarTitle(Text(note.title), displayMode: .inline)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(note: NoteController().previewNotes[0]).environmentObject(TranscribeData())
     }
 }

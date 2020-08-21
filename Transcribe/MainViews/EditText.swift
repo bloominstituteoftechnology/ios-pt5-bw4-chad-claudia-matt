@@ -9,13 +9,27 @@
 import SwiftUI
 
 struct EditText: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var note: Note
+        
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text("Message").bold()
+                Divider()
+                TextField("message", text: $note.bodyText)
+            }
+            Spacer()
+            Button("Dismiss") {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
-        EditText()
+        EditText(note: .constant(NoteController().previewNotes[0]))
     }
 }
