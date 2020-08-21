@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct EditText: View {
+<<<<<<< HEAD
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var noteController: NoteController
     
@@ -44,11 +45,19 @@ struct EditText: View {
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title
+=======
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+>>>>>>> added editText View
     }
 }
 
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
+<<<<<<< HEAD
         EditText(note: NoteController().previewNotes[0])
+=======
+        EditText()
+>>>>>>> added editText View
     }
 }
