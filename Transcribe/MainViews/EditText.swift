@@ -44,6 +44,8 @@ struct EditText: View {
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title
+    }
+}
 
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {

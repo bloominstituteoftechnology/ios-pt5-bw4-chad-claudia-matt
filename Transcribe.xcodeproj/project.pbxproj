@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A2CDB9924EE208D002B435D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CDB9824EE208D002B435D /* DetailView.swift */; };
 		3A2CDB9B24EF5D32002B435D /* EditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CDB9A24EF5D32002B435D /* EditText.swift */; };
-<<<<<<< HEAD
 		3A2CDBA124F0C41B002B435D /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CDBA024F0C41B002B435D /* TextView.swift */; };
-=======
->>>>>>> Changes persist after being changed.
 		6329FF0024ECBD5E005A4DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FEFF24ECBD5E005A4DE9 /* AppDelegate.swift */; };
 		6329FF0224ECBD5E005A4DE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF0124ECBD5E005A4DE9 /* SceneDelegate.swift */; };
 		6329FF0424ECBD5E005A4DE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF0324ECBD5E005A4DE9 /* ContentView.swift */; };
@@ -27,10 +24,7 @@
 /* Begin PBXFileReference section */
 		3A2CDB9824EE208D002B435D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3A2CDB9A24EF5D32002B435D /* EditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditText.swift; path = Transcribe/MainViews/EditText.swift; sourceTree = SOURCE_ROOT; };
-<<<<<<< HEAD
 		3A2CDBA024F0C41B002B435D /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextView.swift; path = Transcribe/Models/TextView.swift; sourceTree = SOURCE_ROOT; };
-=======
->>>>>>> Changes persist after being changed.
 		6329FEFC24ECBD5E005A4DE9 /* Transcribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transcribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6329FEFF24ECBD5E005A4DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6329FF0124ECBD5E005A4DE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,10 +128,7 @@
 		C9D6A0B524EE109500AEEE0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				3A2CDBA024F0C41B002B435D /* TextView.swift */,
-=======
->>>>>>> Changes persist after being changed.
 			);
 			path = Extensions;
 			sourceTree = "<group>";
