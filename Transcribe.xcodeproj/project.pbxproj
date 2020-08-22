@@ -22,6 +22,8 @@
 		C903499624F36B8800728002 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499524F36B8800728002 /* CardRow.swift */; };
 		C903499824F5F58E00728002 /* PopUpNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499724F5F58E00728002 /* PopUpNoteView.swift */; };
 		C903499A24F6189A00728002 /* AddNoteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499924F6189A00728002 /* AddNoteButtonView.swift */; };
+		6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */; };
+		6329FF1E24EF7217005A4DE9 /* TestRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1D24EF7217005A4DE9 /* TestRecordingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C903499524F36B8800728002 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
 		C903499724F5F58E00728002 /* PopUpNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpNoteView.swift; sourceTree = "<group>"; };
 		C903499924F6189A00728002 /* AddNoteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteButtonView.swift; sourceTree = "<group>"; };
+		6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		6329FF1D24EF7217005A4DE9 /* TestRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecordingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 		C9D6A0B224EE107300AEEE0B /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */,
 				6329FF1524ECBF46005A4DE9 /* NoteController.swift */,
 				C903499124F3616100728002 /* CategorizeNotes.swift */,
 			);
@@ -119,6 +124,7 @@
 			children = (
 				6329FF0324ECBD5E005A4DE9 /* ContentView.swift */,
 				3A2CDB9824EE208D002B435D /* DetailView.swift */,
+				6329FF1D24EF7217005A4DE9 /* TestRecordingView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -223,8 +229,11 @@
 				6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */,
 				3A2CDBA124F0C41B002B435D /* TextView.swift in Sources */,
 				C903499624F36B8800728002 /* CardRow.swift in Sources */,
+				3A2CDB9F24EF7B4E002B435D /* TranscribeData.swift in Sources */,
+				6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */,
 				6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */,
 				C903499824F5F58E00728002 /* PopUpNoteView.swift in Sources */,
+				6329FF1E24EF7217005A4DE9 /* TestRecordingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Transcribe/Preview Content\"";
+				DEVELOPMENT_TEAM = 249LNXJ9HG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Transcribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -381,6 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Transcribe/Preview Content\"";
+				DEVELOPMENT_TEAM = 249LNXJ9HG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Transcribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
