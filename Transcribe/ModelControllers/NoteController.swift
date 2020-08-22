@@ -20,7 +20,11 @@ class NoteController: ObservableObject {
         if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
             previewNotes[index].bodyText = newMessage
         }
-
+    }
+    func updateTitle(for note: Note, to newTitle: String) {
+        if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
+            previewNotes[index].title = newTitle
+        }
     }
 
 }
