@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.editMode) var mode
-<<<<<<< HEAD
     @EnvironmentObject var noteController: NoteController
     
     var note: Note
@@ -18,12 +17,6 @@ struct DetailView: View {
     
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
     
-=======
-    @EnvironmentObject var transcribeData: TranscribeData
-    @State var note: Note
-    @State private var editText = false
-    
->>>>>>> Text is now editable
     var body: some View {
         VStack {
             HStack {
@@ -75,22 +68,12 @@ struct DetailView: View {
                                 .foregroundColor(.white)
                                 .offset(x: -5, y: 5)
                         }.sheet(isPresented: $editText) {
-<<<<<<< HEAD
                             EditText(note: self.note).environmentObject(self.noteController)
                         }
                     }
                 } else {
                     EditText(note: note).environmentObject(noteController)
-=======
-                            EditText(note: self.$note)
-                        }
-                    }
-                } else {
-                    EditText(note: $note)
->>>>>>> Text is now editable
                 }
-                
-                
             }
             
             Spacer()
@@ -108,10 +91,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-<<<<<<< HEAD
         DetailView(note: NoteController().previewNotes[0])
-=======
-        DetailView(note: NoteController().previewNotes[0]).environmentObject(TranscribeData())
->>>>>>> Text is now editable
     }
 }

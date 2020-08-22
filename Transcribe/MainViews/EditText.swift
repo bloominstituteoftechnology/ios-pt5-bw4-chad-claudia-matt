@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct EditText: View {
-<<<<<<< HEAD
-<<<<<<< HEAD
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var noteController: NoteController
     
@@ -46,41 +44,9 @@ struct EditText: View {
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title
-=======
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
->>>>>>> added editText View
-=======
-    @Environment(\.presentationMode) var presentationMode
-    
-    @Binding var note: Note
-        
-    var body: some View {
-        VStack {
-            HStack {
-                Text("Message").bold()
-                Divider()
-                TextField("message", text: $note.bodyText)
-            }
-            Spacer()
-            Button("Dismiss") {
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        }
->>>>>>> Text is now editable
-    }
-}
 
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
-<<<<<<< HEAD
-<<<<<<< HEAD
         EditText(note: NoteController().previewNotes[0])
-=======
-        EditText()
->>>>>>> added editText View
-=======
-        EditText(note: .constant(NoteController().previewNotes[0]))
->>>>>>> Text is now editable
     }
 }
