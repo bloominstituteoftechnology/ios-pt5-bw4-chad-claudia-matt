@@ -10,26 +10,35 @@ import SwiftUI
 
 struct EditText: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var noteController: NoteController
     
-    @Binding var note: Note
+    @State private var textFieldContents = ""
+    
+   var note: Note
+    var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
         
     var body: some View {
         VStack {
             HStack {
                 Text("Message").bold()
                 Divider()
-                TextField("message", text: $note.bodyText)
-            }
+                TextField("message", text: $textFieldContents, onEditingChanged: { _ in
+                    self.noteController.updateMessage(for: self.note, to: self.textFieldContents)
+                })
+            }.onAppear(perform: loadItemText)
             Spacer()
             Button("Dismiss") {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
     }
+    func loadItemText() {
+        textFieldContents = note.bodyText
+    }
 }
 
 struct EditText_Previews: PreviewProvider {
     static var previews: some View {
-        EditText(note: .constant(NoteController().previewNotes[0]))
+        EditText(note: NoteController().previewNotes[0])
     }
 }
