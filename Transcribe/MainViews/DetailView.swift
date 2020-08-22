@@ -10,9 +10,12 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.editMode) var mode
-    @EnvironmentObject var transcribeData: TranscribeData
-    @State var note: Note
+    @EnvironmentObject var noteController: NoteController
+    
+    var note: Note
     @State private var editText = false
+    
+    var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
     
     var body: some View {
         VStack {
@@ -65,11 +68,11 @@ struct DetailView: View {
                                 .foregroundColor(.white)
                                 .offset(x: -5, y: 5)
                         }.sheet(isPresented: $editText) {
-                            EditText(note: self.$note)
+                            EditText(note: self.note).environmentObject(self.noteController)
                         }
                     }
                 } else {
-                    EditText(note: $note)
+                    EditText(note: note).environmentObject(noteController)
                 }
                 
                 
@@ -90,6 +93,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(note: NoteController().previewNotes[0]).environmentObject(TranscribeData())
+        DetailView(note: NoteController().previewNotes[0])
     }
 }
