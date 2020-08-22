@@ -26,5 +26,4 @@ class NoteController: ObservableObject {
             previewNotes[index].title = newTitle
         }
     }
-
 }
