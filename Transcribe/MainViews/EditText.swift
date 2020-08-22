@@ -12,19 +12,28 @@ struct EditText: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var noteController: NoteController
     
-    @State private var textFieldContents = ""
+    @State private var messageTextFieldContents = ""
+    @State private var titleTextFieldContents = ""
     
    var note: Note
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
         
     var body: some View {
-        VStack {
+        Form {
+            HStack {
+                Text("Title").bold()
+                Divider()
+                TextField("title", text: $titleTextFieldContents, onEditingChanged: { _ in
+                    self.noteController.updateTitle(for: self.note, to: self.titleTextFieldContents)
+                })
+            }.onAppear(perform: loadItemText)
             HStack {
                 Text("Message").bold()
                 Divider()
-                TextField("message", text: $textFieldContents, onEditingChanged: { _ in
-                    self.noteController.updateMessage(for: self.note, to: self.textFieldContents)
+                TextField("message", text: $messageTextFieldContents, onEditingChanged: { _ in
+                    self.noteController.updateMessage(for: self.note, to: self.messageTextFieldContents)
                 })
+                //TextView(text: $messageTextFieldContents).frame(numLines: 4)
             }.onAppear(perform: loadItemText)
             Spacer()
             Button("Dismiss") {
@@ -33,7 +42,8 @@ struct EditText: View {
         }
     }
     func loadItemText() {
-        textFieldContents = note.bodyText
+        messageTextFieldContents = note.bodyText
+        titleTextFieldContents = note.title
     }
 }
 
