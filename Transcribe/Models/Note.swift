@@ -9,10 +9,11 @@
 import Foundation
 import SwiftUI
 
-struct Note: Identifiable {
+struct Note: Identifiable, Hashable {
     let id = UUID()
     var title: String
     var bodyText: String
     let audioFilename: String
     let color: Color
+    var category: String
 }
