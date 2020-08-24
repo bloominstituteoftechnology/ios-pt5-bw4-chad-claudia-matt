@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 class NoteController: ObservableObject {
 
     @Published var previewNotes: [Note] = [
-        Note(title: "Test 1", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: "", color: .red),
-        Note(title: "Test 2", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: "", color: .orange),
-        Note(title: "Test 3", bodyText: "Ajfkldsjfldksjfldskjfdkls jkflds jkflds jfklds jfklds", audioFilename: "", color: .blue)
+        Note(title: "First Note", bodyText: "This is my first note, this is so cool. SwiftUI is awesome!", audioFilename: "audioFile1.mp3", color: Color("cardColor3"), category: "Misc."),
+        Note(title: "Rap Lyrics", bodyText: "Bust some awesome rhymes, do it everytime-z", audioFilename: "audioFile1.mp3", color: Color("cardColor2"), category: "Lyrics"),
+        Note(title: "Grocery List", bodyText: "Buy milk, cheese, bread, sour cream, eggs, cake mix, vegetables, fruit", audioFilename: "audioFile1.mp3", color: Color("cardColor1"), category: "Shopping List"),
+        Note(title: "Note to future self in the world, you've come a long way buddy.", bodyText: "This is your future self telling you to avoid riding your bike at night, especially when it rains", audioFilename: "audioFile1.mp3", color: Color("cardColor2"), category: "Misc.")
     ]
     
     func updateMessage(for note: Note, to newMessage: String) {
