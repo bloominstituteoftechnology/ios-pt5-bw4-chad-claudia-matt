@@ -147,6 +147,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(note: NoteController().previewNotes[0]).environmentObject(NoteController())
+        DetailView(note: NoteController().previewNotes[0])
+        .environmentObject(NoteController())
     }
 }
