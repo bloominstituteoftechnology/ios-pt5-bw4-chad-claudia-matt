@@ -13,23 +13,23 @@ struct CardRow: View {
     @EnvironmentObject var noteController: NoteController
     
     var notesInCategory: [Note]
-    var color1 = Int.random(in: 1...3)
-    var color2 = Int.random(in: 1...3)
+    var topColor = Int.random(in: 1...3)
+    var bottomColor = Int.random(in: 1...3)
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
-                ForEach(notesInCategory) { note in
+                ForEach(notesInCategory.indices, id: \.self) { index in
                     GeometryReader { geometry in
-                        SingleCardView(note: note,
-                                       gradientColor1: Color("cardColor\(self.color1)"),
-                                       gradientColor2: Color("cardColor\(self.color2)"))
+                        SingleCardView(note: self.notesInCategory[index],
+                                       topGradientColor: Color("cardColor\(self.topColor)"),
+                            bottomGradientColor: Color("cardColor\(self.bottomColor)"))
                             .rotation3DEffect(Angle(degrees:
                                 (Double(geometry.frame(in: .global).minX) / -15) + 5),
                                               axis: (x: 0, y: 20.0, z: 0))
                     }
                     .frame(width: 150, height: 250)
-                }.padding(.horizontal, 5)
+                }.padding(.horizontal, 15)
             }.padding()
         }
         .frame(width: UIScreen.main.bounds.width, height: 250)
