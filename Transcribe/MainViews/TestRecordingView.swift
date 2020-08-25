@@ -41,5 +41,6 @@ struct TestRecordingView: View {
 struct TestSpeechRecordingView_Previews: PreviewProvider {
     static var previews: some View {
         TestRecordingView()
+            .environmentObject(AudioController())
     }
 }
