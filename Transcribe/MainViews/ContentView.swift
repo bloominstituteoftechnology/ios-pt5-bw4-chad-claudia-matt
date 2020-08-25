@@ -14,22 +14,24 @@ struct ContentView: View {
     
     var body: some View {
         
-        ZStack {
-            Color("backgroundColor").edgesIgnoringSafeArea(.all)
-            VStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    Image(systemName: "book.circle").resizable()
-                        .foregroundColor(.pink)
-                        .frame(height: 200, alignment: .center)
-                        .aspectRatio(1, contentMode: .fit)
-                        .padding(50)
-                    
-                    // Groups Notes in array to grouped 2-dimensional array by category
-                    ForEach(noteController.groupByCategory(), id: \.self) { notes in
-                        VStack {
-                            Text("\(notes[0].category)")
-                                .font(.title)
-                            CardRow(notesInCategory: notes)
+        NavigationView {
+            ZStack {
+                Color("backgroundColor").edgesIgnoringSafeArea(.all)
+                VStack {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        Image(systemName: "book.circle").resizable()
+                            .foregroundColor(.pink)
+                            .frame(height: 200, alignment: .center)
+                            .aspectRatio(1, contentMode: .fit)
+                            .padding(50)
+                        
+                        // Groups Notes in array to grouped 2-dimensional array by category
+                        ForEach(noteController.groupByCategory(), id: \.self) { notes in
+                            VStack {
+                                Text("\(notes[0].category)")
+                                    .font(.title)
+                                CardRow(notesInCategory: notes)
+                            }
                         }
                     }
                 }

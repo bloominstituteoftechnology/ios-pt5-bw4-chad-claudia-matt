@@ -12,28 +12,31 @@ struct SingleCardView: View {
     
     @State private var show = false
     
-    var title: String
-    var bodyText: String
+    @EnvironmentObject var noteController: NoteController
+    
+    //    var title: String
+    //    var bodyText: String
+    var note: Note
     var gradientColor1: Color
     var gradientColor2: Color
     
     var body: some View {
+        
         ZStack {
-            
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(LinearGradient(gradient: Gradient(colors: [gradientColor1, gradientColor2]), startPoint: .top, endPoint: .bottomLeading))
                     .frame(width: 150, height: 150, alignment: .center)
-                    .overlay(Button(action: {
-                        print("Edit button tapped")
-                    }) {
-                        Image(systemName: "pencil.circle")
-                            .foregroundColor(Color("editButtonColor"))
-                            .font(.system(size: 25, weight: .bold))
-                            .position(CGPoint(x: 7, y: 7))
-                            .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
-                    })
-                    .overlay(Text(bodyText)
+                    .overlay(
+                        NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
+                            Image(systemName: "pencil.circle")
+                                .foregroundColor(Color("editButtonColor"))
+                                .font(.system(size: 25, weight: .bold))
+                                .position(CGPoint(x: 7, y: 7))
+                                .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
+                        }
+                )
+                    .overlay(Text(note.bodyText)
                         .font(.footnote)
                         .foregroundColor(Color(#colorLiteral(red: 0.9603804946, green: 0.9546712041, blue: 0.9647691846, alpha: 1)))
                         .padding()
@@ -42,7 +45,7 @@ struct SingleCardView: View {
                         self.show = false
                 }
                 GeometryReader { geometry in
-                    Text(self.title).padding(.horizontal, 15).padding(.vertical, 7)
+                    Text(self.note.title).padding(.horizontal, 15).padding(.vertical, 7)
                         .font(.subheadline)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.white)
@@ -61,6 +64,6 @@ struct SingleCardView: View {
 
 struct SingleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCardView(title: "Hello World!", bodyText: "Body Text", gradientColor1: Color("cardColor1"), gradientColor2: Color("cardColor2"))
+        SingleCardView(note: Note(title: "Hello World!", bodyText: "Body Text", audioFilename: "", color: .blue, category: "note"), gradientColor1: Color("cardColor1"), gradientColor2: Color("cardColor2"))
     }
 }
