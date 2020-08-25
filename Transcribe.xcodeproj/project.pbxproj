@@ -17,6 +17,10 @@
 		6329FF0C24ECBD5F005A4DE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6329FF0A24ECBD5F005A4DE9 /* LaunchScreen.storyboard */; };
 		6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1324ECBE7E005A4DE9 /* Note.swift */; };
 		6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1524ECBF46005A4DE9 /* NoteController.swift */; };
+		6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */; };
+		6329FF1E24EF7217005A4DE9 /* TestRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1D24EF7217005A4DE9 /* TestRecordingView.swift */; };
+		63904A1124F4C0AE006F9034 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904A1024F4C0AE006F9034 /* AudioRecorder.swift */; };
+		63904A1424F4C0CB006F9034 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904A1324F4C0CB006F9034 /* AudioPlayer.swift */; };
 		C903499224F3616100728002 /* CategorizeNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499124F3616100728002 /* CategorizeNotes.swift */; };
 		C903499424F36A2A00728002 /* SingleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499324F36A2A00728002 /* SingleCardView.swift */; };
 		C903499624F36B8800728002 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499524F36B8800728002 /* CardRow.swift */; };
@@ -39,6 +43,10 @@
 		6329FF0D24ECBD5F005A4DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6329FF1324ECBE7E005A4DE9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6329FF1524ECBF46005A4DE9 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
+		6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		6329FF1D24EF7217005A4DE9 /* TestRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecordingView.swift; sourceTree = "<group>"; };
+		63904A1024F4C0AE006F9034 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		63904A1324F4C0CB006F9034 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		C903499124F3616100728002 /* CategorizeNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizeNotes.swift; sourceTree = "<group>"; };
 		C903499324F36A2A00728002 /* SingleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCardView.swift; sourceTree = "<group>"; };
 		C903499524F36B8800728002 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 				6329FF0524ECBD5F005A4DE9 /* Assets.xcassets */,
 				C9D6A0B124EE106300AEEE0B /* Models */,
 				C9D6A0B224EE107300AEEE0B /* ModelControllers */,
+				63904A1224F4C0B6006F9034 /* Audio */,
 				C9D6A0B324EE108000AEEE0B /* MainViews */,
 				C9D6A0B424EE108C00AEEE0B /* SubViews */,
 				C9D6A0B524EE109500AEEE0B /* Extensions */,
@@ -101,6 +110,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		63904A1224F4C0B6006F9034 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */,
+				63904A1024F4C0AE006F9034 /* AudioRecorder.swift */,
+				63904A1324F4C0CB006F9034 /* AudioPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		C9D6A0B124EE106300AEEE0B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +131,6 @@
 		C9D6A0B224EE107300AEEE0B /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */,
 				6329FF1524ECBF46005A4DE9 /* NoteController.swift */,
 				C903499124F3616100728002 /* CategorizeNotes.swift */,
 			);
@@ -229,7 +247,6 @@
 				6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */,
 				3A2CDBA124F0C41B002B435D /* TextView.swift in Sources */,
 				C903499624F36B8800728002 /* CardRow.swift in Sources */,
-				3A2CDB9F24EF7B4E002B435D /* TranscribeData.swift in Sources */,
 				6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */,
 				6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */,
 				C903499824F5F58E00728002 /* PopUpNoteView.swift in Sources */,
