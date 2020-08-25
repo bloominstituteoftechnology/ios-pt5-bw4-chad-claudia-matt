@@ -14,24 +14,25 @@ struct SingleCardView: View {
     
     var title: String
     var bodyText: String
-    var color: Color
+    var gradientColor1: Color
+    var gradientColor2: Color
     
     var body: some View {
         ZStack {
             
             VStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color("cardColor1"), Color("cardColor2")]), startPoint: .top, endPoint: .bottomLeading))
+                    .fill(LinearGradient(gradient: Gradient(colors: [gradientColor1, gradientColor2]), startPoint: .top, endPoint: .bottomLeading))
                     .frame(width: 150, height: 150, alignment: .center)
-                .overlay(Button(action: {
-                    print("Edit button tapped")
-                }) {
-                    Image(systemName: "pencil.circle")
-                        .foregroundColor(Color("editButtonColor"))
-                        .font(.system(size: 25, weight: .bold))
-                    .position(CGPoint(x: 7, y: 7))
-                        .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
-                })
+                    .overlay(Button(action: {
+                        print("Edit button tapped")
+                    }) {
+                        Image(systemName: "pencil.circle")
+                            .foregroundColor(Color("editButtonColor"))
+                            .font(.system(size: 25, weight: .bold))
+                            .position(CGPoint(x: 7, y: 7))
+                            .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
+                    })
                     .overlay(Text(bodyText)
                         .font(.footnote)
                         .foregroundColor(Color(#colorLiteral(red: 0.9603804946, green: 0.9546712041, blue: 0.9647691846, alpha: 1)))
@@ -60,6 +61,6 @@ struct SingleCardView: View {
 
 struct SingleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCardView(title: "Hello", bodyText: "body text", color: .blue).previewLayout(.sizeThatFits)
+        SingleCardView(title: "Hello World!", bodyText: "Body Text", gradientColor1: Color("cardColor1"), gradientColor2: Color("cardColor2"))
     }
 }
