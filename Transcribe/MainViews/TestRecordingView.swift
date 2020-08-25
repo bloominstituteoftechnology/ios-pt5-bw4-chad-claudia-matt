@@ -24,15 +24,15 @@ struct TestRecordingView: View {
                     self.audio.startRecording()
                 }) {
                     Text("Start")
+                        .padding()
                 }
-                .padding()
 
                 Button(action: {
                     self.audio.stopRecording()
                 }) {
                     Text("Stop")
+                        .padding()
                 }
-                .padding()
             }
         }
     }
