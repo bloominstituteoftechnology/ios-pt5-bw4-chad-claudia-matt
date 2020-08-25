@@ -23,7 +23,10 @@ class AudioController: ObservableObject {
 
     init() {
         getTranscribePermissions()
-        guard SFSpeechRecognizer.authorizationStatus() == .authorized else { fatalError("Not authorized") }
+        guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
+            print("Not authorized")
+            return
+        }
     }
 
     func startRecording() {
