@@ -14,6 +14,7 @@ struct DetailView: View {
     
     var note: Note
     @State private var editText = false
+    @State private var isShareSheetShowing = false
     
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
     
@@ -57,9 +58,7 @@ struct DetailView: View {
                                 .foregroundColor(.white)
                                 .offset(x: -5, y: 5)
                         }
-                        Button(action: {
-                            // Share
-                        }) {
+                        Button(action: shareButton) {
                             Image(systemName: "square.and.arrow.up")
                                 .font(.headline)
                                 .padding(10)
@@ -86,6 +85,30 @@ struct DetailView: View {
             }
         }
         .navigationBarTitle(Text(note.title), displayMode: .inline)
+    }
+    
+    func getDocumentDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func shareButton() {
+        let url = self.getDocumentDirectory().appendingPathComponent("\(self.note.title).txt")
+        
+        do {
+            try self.note.bodyText.write(to: url, atomically: true, encoding: .utf8)
+            let input = try String(contentsOf: url)
+            print(input)
+        } catch {
+            print(" Unable to write to file \(error.localizedDescription)")
+        }
+        
+        isShareSheetShowing.toggle()
+        
+        let av = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+        
     }
 }
 
