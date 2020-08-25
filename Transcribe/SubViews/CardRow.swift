@@ -11,13 +11,15 @@ import SwiftUI
 struct CardRow: View {
     
     var notesInCategory: [Note]
+    var color1 = Int.random(in: 1...3)
+    var color2 = Int.random(in: 1...3)
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
                 ForEach(notesInCategory) { note in
                     GeometryReader { geometry in
-                        SingleCardView(title: note.title ,bodyText: note.bodyText, color: note.color)
+                        SingleCardView(title: note.title, bodyText: note.bodyText, gradientColor1: Color("cardColor\(self.color1)"), gradientColor2: Color("cardColor\(self.color2)"))
                             .rotation3DEffect(Angle(degrees:
                                 (Double(geometry.frame(in: .global).minX) / -15) + 5),
                                               axis: (x: 0, y: 20.0, z: 0))

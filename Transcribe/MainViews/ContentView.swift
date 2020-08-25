@@ -12,8 +12,6 @@ struct ContentView: View {
 
     @EnvironmentObject var noteController: NoteController
     
-    var categorizedNotes = CategorizeNotes()
-    
     var body: some View {
         
         ZStack {
@@ -26,9 +24,8 @@ struct ContentView: View {
                         .aspectRatio(1, contentMode: .fit)
                         .padding(50)
                     
-                    // group each category into its own array of Note objects
-                    
-                    ForEach(categorizedNotes.testCategorizedNotes, id: \.self) { notes in
+                    // Groups Notes in array to grouped 2-dimensional array by category
+                    ForEach(noteController.groupByCategory(), id: \.self) { notes in
                         VStack {
                             Text("\(notes[0].category)")
                                 .font(.title)
