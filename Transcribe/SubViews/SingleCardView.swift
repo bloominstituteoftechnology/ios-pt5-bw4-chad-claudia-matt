@@ -34,7 +34,7 @@ struct SingleCardView: View {
                         self.show = false
                         self.noteController.selectedNote = self.note
                         withAnimation {
-                            self.noteController.showPopUp.toggle()
+                            self.noteController.showPopUp = true
                         }
                 }
                 GeometryReader { geometry in
