@@ -16,6 +16,8 @@ struct ContentView: View {
         
         NavigationView {
             ZStack {
+                
+                
                 Color("backgroundColor").edgesIgnoringSafeArea(.all)
                 VStack {
                     ScrollView(.vertical, showsIndicators: false) {
@@ -33,6 +35,29 @@ struct ContentView: View {
                                 CardRow(notesInCategory: notes)
                             }
                         }
+                    }
+                }
+                // show popup
+                ZStack {
+                    if self.noteController.showPopUp {
+                        GeometryReader { _ in
+                            VStack {
+                                PopUpNoteView(note: self.noteController.selectedNote!)
+                                
+                                Button(action: {
+                                    withAnimation {
+                                        self.noteController.showPopUp.toggle()
+                                    }
+                                }) {
+                                    Image(systemName: "xmark").resizable()
+                                        .frame(width: 15, height: 15)
+                                        .foregroundColor(.black)
+                                        .padding(20)
+                                }.background(Color.white)
+                                    .clipShape(Circle())
+                                    .padding(.top, 25)
+                            }
+                        }.background(Color.black.opacity(0.5).edgesIgnoringSafeArea(.all))
                     }
                 }
             }
