@@ -16,12 +16,13 @@ struct PopUpNoteView: View {
         
         VStack {
             Text(note.title)
-                .padding(.top, 10)
+                .padding(10)
                 .font(Font.title)
             Divider()
             ScrollView(.vertical, showsIndicators: false) {
                 Text(note.bodyText)
-            }
+            }.padding(.horizontal, 20)
+                .padding(.bottom, 20)
         }.frame(width: UIScreen.main.bounds.width - 80, height: UIScreen.main.bounds.height * 0.5)
         .background(Color("backgroundColor"))
         .cornerRadius(20)
