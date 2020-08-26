@@ -29,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 contentView
                     .environmentObject(noteController)
                     .environmentObject(AudioController())
+                    .environmentObject(AudioRecorder())
+                    .environmentObject(AudioPlayer())
             )
             self.window = window
             window.makeKeyAndVisible()
