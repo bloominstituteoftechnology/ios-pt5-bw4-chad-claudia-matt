@@ -16,21 +16,26 @@ struct ContentView: View {
         
         NavigationView {
             ZStack {
-                
-                
                 Color("backgroundColor").edgesIgnoringSafeArea(.all)
                 VStack {
                     ScrollView(.vertical, showsIndicators: false) {
-                        ZStack {
-                            Image(systemName: "book.circle").resizable()
-                                .foregroundColor(.pink)
-                                .frame(height: 200, alignment: .center)
-                                .aspectRatio(1, contentMode: .fit)
-                                .padding(50)
-                            Image("transcribe").resizable()
-                                .frame(height: 250, alignment: .center)
-                                .aspectRatio(1, contentMode: .fit)
-                                .shadow(color: Color("cardColor2").opacity(0.5), radius: 10, x: 0, y: 0)
+                        HStack {
+                            ZStack {
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: "book.circle")
+                                            .resizable()
+                                            .aspectRatio(1, contentMode: .fit)
+                                            .frame(width: 200, height: 200, alignment: .trailing)
+                                        .foregroundColor(.pink)
+                                    Spacer()
+                                }
+                                
+                                Image("transcribe").resizable()
+                                    .frame(height: 250, alignment: .center)
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .shadow(color: Color("cardColor2").opacity(0.5), radius: 10, x: 0, y: 0)
+                            }
                         }
                         
                         // Groups Notes in array to grouped 2-dimensional array by category
@@ -39,9 +44,11 @@ struct ContentView: View {
                                 Text("\(notes[0].category)")
                                     .font(.title)
                                 CardRow(notesInCategory: notes)
+                                Divider()
                             }
                         }
                     }
+                    .padding(.top, -70)
                 }
                 // show popup
                 ZStack {
