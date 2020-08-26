@@ -11,14 +11,9 @@ import SwiftUI
 struct SingleCardView: View {
     
     @State private var show = false
-    
     @EnvironmentObject var noteController: NoteController
     
-    //    var title: String
-    //    var bodyText: String
     var note: Note
-    var topGradientColor: Color
-    var bottomGradientColor: Color
     
     var body: some View {
         
@@ -27,7 +22,7 @@ struct SingleCardView: View {
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     
-                    .fill(LinearGradient(gradient: Gradient(colors: [topGradientColor, bottomGradientColor]), startPoint: .top, endPoint: .bottomLeading))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color("cardColor1"), Color("cardColor2")]), startPoint: .top, endPoint: .bottomLeading))
                     .frame(width: 150, height: 150, alignment: .center)
                     .overlay(Text(note.bodyText)
                         .font(.footnote)
@@ -35,12 +30,12 @@ struct SingleCardView: View {
                         .padding()
                 ).shadow(color: Color("cardColor1").opacity(0.5), radius: 7, x: 0, y: 2)
                     .onTapGesture {
+                        print("tap")
                         self.show = false
                         self.noteController.selectedNote = self.note
                         withAnimation {
                             self.noteController.showPopUp.toggle()
                         }
-                        // Popup View
                 }
                 GeometryReader { geometry in
                     Text(self.note.title).padding(.horizontal, 15).padding(.vertical, 7)
@@ -88,6 +83,6 @@ struct SingleCardView: View {
 
 struct SingleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", color: .blue, category: "note"), topGradientColor: Color("cardColor1"), bottomGradientColor: Color("cardColor3"))
+        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", color: .blue, category: "note"))
     }
 }

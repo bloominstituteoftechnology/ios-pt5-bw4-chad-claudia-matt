@@ -21,9 +21,7 @@ struct CardRow: View {
             HStack(spacing: 0) {
                 ForEach(notesInCategory.indices, id: \.self) { index in
                     GeometryReader { geometry in
-                        SingleCardView(note: self.notesInCategory[index],
-                                       topGradientColor: Color("cardColor\(self.topColor)"),
-                            bottomGradientColor: Color("cardColor\(self.bottomColor)"))
+                        SingleCardView(note: self.notesInCategory[index])
                             .rotation3DEffect(Angle(degrees:
                                 (Double(geometry.frame(in: .global).minX) / -15) + 5),
                                               axis: (x: 0, y: 20.0, z: 0))
