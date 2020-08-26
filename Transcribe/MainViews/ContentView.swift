@@ -58,6 +58,15 @@ struct ContentView: View {
                         }.background(Color.black.opacity(0.5).edgesIgnoringSafeArea(.all))
                     }
                 }
+                
+                VStack {
+                    HStack {
+                        Spacer()
+                        AddNoteButtonView().padding()
+                    }
+                    Spacer()
+                }
+                
             }.onTapGesture {
                 withAnimation {
                     self.noteController.showPopUp = false
