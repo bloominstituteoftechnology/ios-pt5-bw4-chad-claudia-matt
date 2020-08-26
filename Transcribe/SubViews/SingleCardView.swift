@@ -23,20 +23,12 @@ struct SingleCardView: View {
     var body: some View {
         
         ZStack {
+            
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     
                     .fill(LinearGradient(gradient: Gradient(colors: [topGradientColor, bottomGradientColor]), startPoint: .top, endPoint: .bottomLeading))
                     .frame(width: 150, height: 150, alignment: .center)
-//                    .overlay(
-//                        NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
-//                            Image(systemName: "pencil.circle")
-//                                .foregroundColor(Color("editButtonColor"))
-//                                .font(.system(size: 25, weight: .bold))
-//                                .position(CGPoint(x: 7, y: 7))
-//                                .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
-//                        }
-//                )
                     .overlay(Text(note.bodyText)
                         .font(.footnote)
                         .foregroundColor(Color(#colorLiteral(red: 0.9603804946, green: 0.9546712041, blue: 0.9647691846, alpha: 1)))
@@ -44,6 +36,11 @@ struct SingleCardView: View {
                 ).shadow(color: Color("cardColor1").opacity(0.5), radius: 7, x: 0, y: 2)
                     .onTapGesture {
                         self.show = false
+                        self.noteController.selectedNote = self.note
+                        withAnimation {
+                            self.noteController.showPopUp.toggle()
+                        }
+                        // Popup View
                 }
                 GeometryReader { geometry in
                     Text(self.note.title).padding(.horizontal, 15).padding(.vertical, 7)
@@ -62,25 +59,25 @@ struct SingleCardView: View {
             VStack{
                 HStack{
                     NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
-                    Image(systemName: "pencil.circle")
-                        .foregroundColor(Color("editButtonColor"))
-                        .font(.system(size: 22, weight: .bold))
-                        .padding(.top, 5)
-                        .padding(.leading, 3)
-                        .padding(.bottom, 15)
-                        .padding(.trailing, 15)
-                        .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
+                        Image(systemName: "pencil.circle")
+                            .foregroundColor(Color("editButtonColor"))
+                            .font(.system(size: 22, weight: .bold))
+                            .padding(.top, 5)
+                            .padding(.leading, 3)
+                            .padding(.bottom, 15)
+                            .padding(.trailing, 15)
+                            .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
                     }
                     Spacer()
                     NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
-                    Image(systemName: "xmark.circle")
-                        .foregroundColor((Color("deleteButtonColor")).opacity(0.7))
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(.top, 3)
-                        .padding(.leading, 15)
-                        .padding(.bottom, 10)
-                        .padding(.trailing, 3)
-                        .shadow(color: Color.red.opacity(0.5), radius: 3, x: 0, y: 0)
+                        Image(systemName: "xmark.circle")
+                            .foregroundColor((Color("deleteButtonColor")).opacity(0.7))
+                            .font(.system(size: 20, weight: .bold))
+                            .padding(.top, 3)
+                            .padding(.leading, 15)
+                            .padding(.bottom, 10)
+                            .padding(.trailing, 3)
+                            .shadow(color: Color.red.opacity(0.5), radius: 3, x: 0, y: 0)
                     }                }
                 Spacer()
             }

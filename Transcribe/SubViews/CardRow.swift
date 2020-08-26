@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardRow: View {
     
-    @EnvironmentObject var noteController: NoteController
+//    @EnvironmentObject var noteController: NoteController
     
     var notesInCategory: [Note]
     var topColor = Int.random(in: 1...3)

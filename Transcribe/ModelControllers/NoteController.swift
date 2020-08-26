@@ -11,6 +11,9 @@ import SwiftUI
 import Combine
 
 class NoteController: ObservableObject {
+    
+    @Published var showPopUp = false
+    @Published var selectedNote: Note?
 
     @Published var previewNotes: [Note] = [
         Note(title: "First Note", bodyText: "This is my first note, this is so cool. SwiftUI is awesome!", audioFilename: "audioFile1.mp3", color: Color("cardColor3"), category: "First Note"),
