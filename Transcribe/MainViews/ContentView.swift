@@ -63,9 +63,10 @@ struct ContentView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        AddNoteButtonView().padding()
-                    }
-                    
+                        NavigationLink(destination: DetailView(note: Note(title: "New Note", bodyText: "", audioFilename: "", category: ""))) {
+                            EmptyView()
+                        }.buttonStyle(NeumorphicButtonStyle(bgColor: .green))
+                    }.padding()
                 }
                 
             }.onTapGesture {
@@ -73,6 +74,28 @@ struct ContentView: View {
                     self.noteController.showPopUp = false
                 }
             }
+        }
+    }
+    
+    struct NeumorphicButtonStyle: ButtonStyle {
+        var bgColor: Color
+
+        func makeBody(configuration: Self.Configuration) -> some View {
+            ZStack {
+                Circle()
+                .frame(width: 55, height: 55)
+                    .foregroundColor(.blue)
+                Image(systemName: "plus")
+                .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                .frame(width: 20, height: 20)
+                .padding(12)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color("cardColor1"), Color("cardColor2")]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .clipShape(Circle())
+                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5)
+                    .shadow(color: Color.white.opacity(0.1), radius: 10, x: -5, y: -5)
+            }.opacity(0.8)
         }
     }
 
