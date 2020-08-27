@@ -17,7 +17,6 @@
 		6329FF0C24ECBD5F005A4DE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6329FF0A24ECBD5F005A4DE9 /* LaunchScreen.storyboard */; };
 		6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1324ECBE7E005A4DE9 /* Note.swift */; };
 		6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1524ECBF46005A4DE9 /* NoteController.swift */; };
-		6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */; };
 		63904A1624F4C39F006F9034 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904A1524F4C39F006F9034 /* RecordingView.swift */; };
 		63C0AF2324F5F86400AD1B42 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904A1024F4C0AE006F9034 /* AudioRecorder.swift */; };
 		63C0AF2424F5F86900AD1B42 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904A1324F4C0CB006F9034 /* AudioPlayer.swift */; };
@@ -27,7 +26,6 @@
 		C903499624F36B8800728002 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499524F36B8800728002 /* CardRow.swift */; };
 		C903499824F5F58E00728002 /* PopUpNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499724F5F58E00728002 /* PopUpNoteView.swift */; };
 		C903499A24F6189A00728002 /* AddNoteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903499924F6189A00728002 /* AddNoteButtonView.swift */; };
-		6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +41,6 @@
 		6329FF0D24ECBD5F005A4DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6329FF1324ECBE7E005A4DE9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6329FF1524ECBF46005A4DE9 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
-		6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		63904A1024F4C0AE006F9034 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		63904A1324F4C0CB006F9034 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		63904A1524F4C39F006F9034 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
@@ -55,7 +52,6 @@
 		C903499524F36B8800728002 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
 		C903499724F5F58E00728002 /* PopUpNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpNoteView.swift; sourceTree = "<group>"; };
 		C903499924F6189A00728002 /* AddNoteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteButtonView.swift; sourceTree = "<group>"; };
-		6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +111,6 @@
 		63904A1224F4C0B6006F9034 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				6329FF1B24EE1FF5005A4DE9 /* AudioController.swift */,
 				63904A1024F4C0AE006F9034 /* AudioRecorder.swift */,
 				63904A1324F4C0CB006F9034 /* AudioPlayer.swift */,
 				63C0AF2624F60F4F00AD1B42 /* Transcriber.h */,
@@ -256,7 +251,6 @@
 				6329FF1424ECBE7E005A4DE9 /* Note.swift in Sources */,
 				3A2CDBA124F0C41B002B435D /* TextView.swift in Sources */,
 				C903499624F36B8800728002 /* CardRow.swift in Sources */,
-				6329FF1C24EE1FF5005A4DE9 /* AudioController.swift in Sources */,
 				6329FF1624ECBF46005A4DE9 /* NoteController.swift in Sources */,
 				C903499824F5F58E00728002 /* PopUpNoteView.swift in Sources */,
 			);
