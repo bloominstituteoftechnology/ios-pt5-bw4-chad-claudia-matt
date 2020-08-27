@@ -14,6 +14,5 @@ struct Note: Identifiable, Hashable, Codable {
     var title: String
     var bodyText: String
     let audioFilename: String
-    let color: Color
     var category: String
 }
