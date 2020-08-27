@@ -1,5 +1,5 @@
 //
-//  RecordingView.swift
+//  RecordView.swift
 //  Transcribe
 //
 //  Created by Chad Parker on 8/24/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RecordingView: View {
+struct RecordView: View {
 
     @EnvironmentObject var audioRecorder: AudioRecorder
 
@@ -53,7 +53,7 @@ struct RecordingView: View {
 
 struct RecordingView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordingView()
+        RecordView()
             .environmentObject(AudioRecorder())
             .previewLayout(PreviewLayout.fixed(width: 414, height: 200))
     }
