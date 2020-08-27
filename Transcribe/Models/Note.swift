@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Note: Identifiable, Hashable {
+struct Note: Identifiable, Hashable, Codable {
     let id = UUID()
     var title: String
     var bodyText: String

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Chad-Claudia-Matt. All rights reserved.
 //
 
+// I added a function to our code and to add a new note to our array all we need to do is use self.noteController.add(<note to add>
+
 import Foundation
 import SwiftUI
 import Combine
@@ -28,15 +30,40 @@ class NoteController: ObservableObject {
         Note(title: "Second Note kjsdlkjf l;ksadflkjjkdsf;lkadfjkl a", bodyText: "This is my second note, this is so cool. SwiftUI is awesome!", audioFilename: "audioFile1.mp3", color: Color("cardColor3"), category: "Misc."),
         Note(title: "Whatever note.", bodyText: "This is a longer note to see how the ui responds to longer text. Hopefully it still looks good, if not we'll figure something out", audioFilename: "audioFile1.mp3", color: Color("cardColor2"), category: "Misc.")
     ]
+    static let saveKey = "SavedData"
+    
+    init() {
+        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+            if let decoded = try? JSONDecoder().decode([Note].self, from: data) {
+                self.previewNotes = decoded
+                return
+            }
+        }
+        
+        self.previewNotes = []
+    }
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(previewNotes) {
+            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+        }
+    }
+    
+    func add(_ note: Note) {
+        previewNotes.append(note)
+        save()
+    }
     
     func updateMessage(for note: Note, to newMessage: String) {
         if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
             previewNotes[index].bodyText = newMessage
+            save()
         }
     }
     func updateTitle(for note: Note, to newTitle: String) {
         if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
             previewNotes[index].title = newTitle
+            save()
         }
     }
     
