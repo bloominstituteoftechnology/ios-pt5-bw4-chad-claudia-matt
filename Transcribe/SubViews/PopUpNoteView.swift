@@ -35,8 +35,8 @@ struct PopUpNoteView: View {
 struct PopUpNoteView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", color: .red, category: "popUp"))
-            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", color: .red, category: "popUp")).environment(\.colorScheme, .dark)
+            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", category: "popUp"))
+            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", category: "popUp")).environment(\.colorScheme, .dark)
         }
     }
 }

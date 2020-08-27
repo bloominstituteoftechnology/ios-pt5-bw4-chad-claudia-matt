@@ -18,7 +18,6 @@ struct SingleCardView: View {
     var body: some View {
         
         ZStack {
-            
             VStack {
                 RoundedRectangle(cornerRadius: 10)
                     
@@ -83,6 +82,6 @@ struct SingleCardView: View {
 
 struct SingleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", color: .blue, category: "note"))
+        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", category: "note"))
     }
 }
