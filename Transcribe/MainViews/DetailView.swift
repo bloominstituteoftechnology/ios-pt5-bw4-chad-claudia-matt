@@ -89,7 +89,7 @@ struct DetailView: View {
                 }
             }
             Spacer()
-            RecordingView()
+            RecordView()
         }
         .navigationBarTitle(Text(note.title), displayMode: .inline)
     }
