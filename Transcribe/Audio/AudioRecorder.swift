@@ -67,7 +67,7 @@ class AudioRecorder: NSObject, ObservableObject {
         switch AVAudioSession.sharedInstance().recordPermission {
         case .undetermined:
             AVAudioSession.sharedInstance().requestRecordPermission { granted in
-                guard granted == true else {
+                guard granted else {
                     print("We need microphone access")
                     return
                 }
