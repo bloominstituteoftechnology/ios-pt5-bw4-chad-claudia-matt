@@ -89,13 +89,7 @@ struct DetailView: View {
                 }
             }
             Spacer()
-            Button(action: {
-                //record audio
-            }) {
-                Image("record")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-            }
+            RecordingView()
         }
         .navigationBarTitle(Text(note.title), displayMode: .inline)
     }
@@ -148,6 +142,8 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(note: NoteController().previewNotes[0])
-        .environmentObject(NoteController())
+            .environmentObject(NoteController())
+            .environmentObject(AudioRecorder())
+            .environmentObject(AudioPlayer())
     }
 }
