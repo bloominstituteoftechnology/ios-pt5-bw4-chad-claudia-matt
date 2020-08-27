@@ -15,4 +15,5 @@ struct Note: Identifiable, Hashable, Codable {
     var bodyText: String
     let audioFilename: String
     var category: String
+    var recordings: [Recording] = []
 }
