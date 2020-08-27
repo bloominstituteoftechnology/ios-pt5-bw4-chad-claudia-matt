@@ -14,21 +14,40 @@ struct RecordingView: View {
 
     var body: some View {
         VStack {
-            #warning("working on this")
+            Spacer()
             if audioRecorder.isRecording {
-                Text("Recording...")
+                Text("RECORDING...")
+                    .foregroundColor(.red)
+                    .bold()
+                    .animation(.easeInOut(duration: 0.3))
+                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
             }
-            Button(action: {
-                self.audioRecorder.toggleRecording()
-            }) {
-                Image("record")
-                    .resizable()
-                    .frame(width: 60, height: 60)
+            ZStack {
+                Button(action: { // Record button
+                    withAnimation {
+                        self.audioRecorder.toggleRecording()
+                    }
+                }) {
+                    ZStack {
+                        Image("record")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                        if audioRecorder.isRecording { // Black square overlay
+                            Image(systemName: "square.fill")
+                                .font(.system(size: 23))
+                                .foregroundColor(Color(.label))
+                        }
+                    }
+                }
+                HStack {
+                    if audioRecorder.isRecording {
+                        Text(audioRecorder.elapsedTimeString)
+                            .padding()
+                    }
+                    Spacer()
+                }
             }
         }
-        .frame(width: 360)
-        .frame(minHeight: 100)
-        .border(Color.black)
     }
 }
 
@@ -36,6 +55,6 @@ struct RecordingView_Previews: PreviewProvider {
     static var previews: some View {
         RecordingView()
             .environmentObject(AudioRecorder())
-            //.previewLayout(PreviewLayout.fixed(width: 320, height: 120))
+            .previewLayout(PreviewLayout.fixed(width: 414, height: 200))
     }
 }
