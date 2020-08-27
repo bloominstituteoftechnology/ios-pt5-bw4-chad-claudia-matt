@@ -60,11 +60,12 @@ struct ContentView: View {
                 }
                 
                 VStack {
+                    Spacer()
                     HStack {
                         Spacer()
                         AddNoteButtonView().padding()
                     }
-                    Spacer()
+                    
                 }
                 
             }.onTapGesture {
