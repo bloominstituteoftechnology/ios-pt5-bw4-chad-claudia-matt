@@ -56,6 +56,11 @@ struct ContentView: View {
                         GeometryReader { _ in
                                 PopUpNoteView(note: self.noteController.selectedNote!)
                         }.background(Color.black.opacity(0.5).edgesIgnoringSafeArea(.all))
+                            .onTapGesture {
+                                withAnimation {
+                                    self.noteController.showPopUp = false
+                                }
+                        }
                     }
                 }
                 
@@ -67,11 +72,6 @@ struct ContentView: View {
                             EmptyView()
                         }.buttonStyle(NeumorphicButtonStyle(bgColor: .green))
                     }.padding()
-                }
-                
-            }.onTapGesture {
-                withAnimation {
-                    self.noteController.showPopUp = false
                 }
             }
         }

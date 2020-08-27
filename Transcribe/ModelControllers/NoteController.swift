@@ -12,12 +12,17 @@ import Foundation
 import SwiftUI
 import Combine
 
-class NoteController: ObservableObject {
+final class NoteController: ObservableObject {
     
     @Published var showPopUp = false
     @Published var selectedNote: Note?
 
-    @Published var previewNotes: [Note] = []
+    @Published var previewNotes: [Note] = [
+        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "Misc."),
+        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "List"),
+        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "List"),
+        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "Misc."),
+    ]
     
     static let saveKey = "SavedData"
     
@@ -29,7 +34,7 @@ class NoteController: ObservableObject {
             }
         }
         
-        self.previewNotes = []
+//        self.previewNotes = []
     }
     
     func save() {

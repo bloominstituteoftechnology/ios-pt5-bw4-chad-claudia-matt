@@ -29,7 +29,6 @@ struct SingleCardView: View {
                         .padding()
                 ).shadow(color: Color("cardColor1").opacity(0.5), radius: 7, x: 0, y: 2)
                     .onTapGesture {
-                        print("tap")
                         self.show = false
                         self.noteController.selectedNote = self.note
                         withAnimation {
