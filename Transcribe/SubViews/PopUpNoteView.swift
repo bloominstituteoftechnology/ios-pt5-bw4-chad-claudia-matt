@@ -11,17 +11,21 @@ import SwiftUI
 struct PopUpNoteView: View {
     
     var note: Note
+    @State var editedTitle: String = ""
+    @State var editedBodyText: String = ""
     
     var body: some View {
         
         VStack {
-            Text(note.title)
+            TextField("\(note.title)", text: $editedTitle)
                 .padding(10)
                 .font(Font.system(size: 25))
                 .foregroundColor(.white)
+            
             Divider()
+            
             ScrollView(.vertical, showsIndicators: false) {
-                Text(note.bodyText)
+                TextField("\(note.bodyText)", text: $editedBodyText)
                     .foregroundColor(Color(#colorLiteral(red: 0.8967368603, green: 0.8914062381, blue: 0.9008343816, alpha: 1)))
             }.padding(.horizontal, 20)
                 .padding(.bottom, 20)
@@ -29,13 +33,17 @@ struct PopUpNoteView: View {
             .background(RadialGradient(gradient: Gradient(colors: [Color("cardColor2"), Color("cardColor1")]), center: UnitPoint(x: 0, y: 0), startRadius: 0, endRadius: UIScreen.main.bounds.width * 2))
         .cornerRadius(20)
             .shadow(color: Color(.black).opacity(0.5), radius: 20, x: 0, y: 0)
+            .onAppear {
+                self.editedTitle = self.note.title
+                self.editedBodyText = self.note.bodyText
+        }
     }
 }
 
 struct PopUpNoteView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", category: "popUp"))
+            PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", category: "popUp")).environmentObject(NoteController())
             PopUpNoteView(note: Note(title: "Popup", bodyText: "body text", audioFilename: "", category: "popUp")).environment(\.colorScheme, .dark)
         }
     }

@@ -55,12 +55,13 @@ struct ContentView: View {
                     if self.noteController.showPopUp {
                         GeometryReader { _ in
                                 PopUpNoteView(note: self.noteController.selectedNote!)
-                        }.background(Color.black.opacity(0.5).edgesIgnoringSafeArea(.all))
-                            .onTapGesture {
+                        }.background(Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
                                 withAnimation {
                                     self.noteController.showPopUp = false
                                 }
                         }
+                        )
                     }
                 }
                 
