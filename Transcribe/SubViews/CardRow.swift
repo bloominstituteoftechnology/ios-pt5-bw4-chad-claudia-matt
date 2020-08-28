@@ -36,6 +36,6 @@ struct CardRow: View {
 
 struct CardRow_Previews: PreviewProvider {
     static var previews: some View {
-        CardRow(notesInCategory: [Note(title: "First Title", bodyText: "Body text for first note", audioFilename: "audioFile.mp3", category: "Misc."), Note(title: "Second Title", bodyText: "Body text for second note", audioFilename: "audioFile.mp3", category: "Misc.")]).previewLayout(.sizeThatFits)
+        CardRow(notesInCategory: [Note(title: "First Title", bodyText: "Body text for first note", audioFilename: "audioFile.mp3", category: "Misc."), Note(title: "Second Title", bodyText: "Body text for second note", audioFilename: "audioFile.mp3", category: "Misc.")]).previewLayout(.sizeThatFits).environmentObject(NoteController())
     }
 }
