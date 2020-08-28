@@ -15,9 +15,12 @@ struct EditText: View {
     @State private var messageTextFieldContents = ""
     @State private var titleTextFieldContents = ""
     @State private var categoryTextFieldContents = ""
+<<<<<<< HEAD
     
     var note: Note
     @Binding var noteWasUpdated: Bool
+=======
+>>>>>>> User can edit category as well
     
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
         
@@ -44,7 +47,15 @@ struct EditText: View {
                     self.noteController.updateMessage(for: self.note, to: self.categoryTextFieldContents)
                 })
             }.onAppear(perform: loadItemText)
+            HStack {
+                Text("Category").bold()
+                Divider()
+                TextField("category", text: $categoryTextFieldContents, onEditingChanged: { _ in
+                    self.noteController.updateMessage(for: self.note, to: self.categoryTextFieldContents)
+                })
+            }.onAppear(perform: loadItemText)
             Spacer()
+<<<<<<< HEAD
             HStack {
                 Button("Dismiss") {
                     self.presentationMode.wrappedValue.dismiss()
@@ -59,6 +70,11 @@ struct EditText: View {
                     }
                     self.noteWasUpdated = false
                 }
+=======
+            
+            Button("Dismiss") {
+                self.presentationMode.wrappedValue.dismiss()
+>>>>>>> User can edit category as well
             }
             
         }
