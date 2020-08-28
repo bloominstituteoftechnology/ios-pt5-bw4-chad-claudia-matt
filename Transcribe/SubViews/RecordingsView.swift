@@ -26,17 +26,22 @@ struct SingleRecordingView: View {
     let recording: Recording
 
     @EnvironmentObject var audioPlayer: AudioPlayer
-    @State private var isPlaying: Bool = false
 
     var body: some View {
         Button(action: {
-            self.isPlaying.toggle()
-            self.audioPlayer.loadAudio(url: self.recording.audioFileURL)
+            if self.audioPlayer.isPlaying {
+                self.audioPlayer.pause()
+            } else {
+                self.audioPlayer.loadAudio(url: self.recording.audioFileURL)
+                self.audioPlayer.play()
+            }
         }) {
             HStack {
-                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                Image(systemName: audioPlayer.isPlaying ? "pause.circle" : "play.circle")
                 Text(recording.textTranscript)
-                Text(AudioPlayer.durationString(from: recording.duration))
+                Text(audioPlayer.isPlaying ?
+                    audioPlayer.elapsedTimeString :
+                    audioPlayer.durationString(from: recording.duration))
                     .padding(.leading)
             }
         }

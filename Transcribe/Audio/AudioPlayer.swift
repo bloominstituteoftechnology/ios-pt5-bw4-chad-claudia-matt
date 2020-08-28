@@ -10,6 +10,12 @@ import Foundation
 import AVFoundation
 
 class AudioPlayer: NSObject, ObservableObject {
+
+    // MARK: - Public Helper
+
+    func durationString(from seconds: Int) -> String {
+        timeIntervalFormatter.string(from: TimeInterval(seconds))!
+    }
     
     // MARK: - Properties
     
@@ -59,8 +65,6 @@ class AudioPlayer: NSObject, ObservableObject {
     
     override init() {
         super.init()
-        
-        loadAudio()
     }
     
     deinit {
@@ -70,7 +74,7 @@ class AudioPlayer: NSObject, ObservableObject {
     
     // MARK: - Playback
     
-    func loadAudio(url: URL? = Bundle.main.url(forResource: "piano", withExtension: "mp3")) {
+    func loadAudio(url: URL?) {
         guard let url = url else {
             print("URL was nil")
             return
