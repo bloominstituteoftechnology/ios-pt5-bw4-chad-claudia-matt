@@ -51,7 +51,7 @@ struct SingleCardView: View {
             }
             VStack{
                 HStack{
-                    NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
+                    NavigationLink(destination: DetailView(note: note).environmentObject(self.noteController)) {
                         Image(systemName: "pencil.circle")
                             .foregroundColor(Color("editButtonColor"))
                             .font(.system(size: 22, weight: .bold))
@@ -62,7 +62,9 @@ struct SingleCardView: View {
                             .shadow(color: Color("editButtonColor").opacity(0.5), radius: 5, x: 4, y: 6)
                     }
                     Spacer()
-                    NavigationLink(destination: EditText(note: note).environmentObject(self.noteController)) {
+                    Button(action: {
+                        self.noteController.delete(self.note)
+                    }) {
                         Image(systemName: "xmark.circle")
                             .foregroundColor((Color("deleteButtonColor")).opacity(0.7))
                             .font(.system(size: 20, weight: .bold))
@@ -71,16 +73,16 @@ struct SingleCardView: View {
                             .padding(.bottom, 10)
                             .padding(.trailing, 3)
                             .shadow(color: Color.red.opacity(0.5), radius: 3, x: 0, y: 0)
-                    }                }
+                    }
+                }
                 Spacer()
             }
-            
         }
     }
 }
 
 struct SingleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", category: "note"))
+        SingleCardView(note: Note(title: "Hello world", bodyText: "Body Text", audioFilename: "", category: "note")).environmentObject(NoteController()).environmentObject(NoteController())
     }
 }
