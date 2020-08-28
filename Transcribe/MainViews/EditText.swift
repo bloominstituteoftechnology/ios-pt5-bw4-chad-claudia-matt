@@ -14,6 +14,7 @@ struct EditText: View {
     
     @State private var messageTextFieldContents = ""
     @State private var titleTextFieldContents = ""
+    @State private var categoryTextFieldContents = ""
     
    var note: Note
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
@@ -35,7 +36,15 @@ struct EditText: View {
                 })
                 //TextView(text: $messageTextFieldContents).frame(numLines: 4)
             }.onAppear(perform: loadItemText)
+            HStack {
+                Text("Category").bold()
+                Divider()
+                TextField("category", text: $categoryTextFieldContents, onEditingChanged: { _ in
+                    self.noteController.updateMessage(for: self.note, to: self.categoryTextFieldContents)
+                })
+            }.onAppear(perform: loadItemText)
             Spacer()
+            
             Button("Dismiss") {
                 self.presentationMode.wrappedValue.dismiss()
             }
@@ -44,6 +53,7 @@ struct EditText: View {
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title
+        categoryTextFieldContents = note.category
     }
 }
 

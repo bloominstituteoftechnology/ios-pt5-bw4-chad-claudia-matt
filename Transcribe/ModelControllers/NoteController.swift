@@ -33,7 +33,7 @@ final class NoteController: ObservableObject {
                 return
             }
         }
-        
+        #warning("Uncomment this if we want to not use the premade notes")
 //        self.previewNotes = []
     }
     
@@ -68,6 +68,13 @@ final class NoteController: ObservableObject {
         }
     }
     
+    func updateCategory(for note: Note, to newCategory: String) {
+        if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
+            previewNotes[index].title = newCategory
+            save()
+        }
+    }
+    
     func groupByCategory() -> [[Note]] {
         let groupedNotes = Dictionary(grouping: previewNotes) { element -> String in
             return element.category
@@ -82,5 +89,11 @@ final class NoteController: ObservableObject {
         }
         
         return categorizedNotes
+    }
+}
+
+struct NoteController_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
