@@ -88,6 +88,10 @@ struct DetailView: View {
                     }.buttonStyle(BorderlessButtonStyle())
                 }
             }
+
+            RecordingsView(note: note)
+                .padding(.top)
+            
             Spacer()
             RecordView()
         }
