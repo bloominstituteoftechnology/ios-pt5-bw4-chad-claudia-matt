@@ -145,9 +145,13 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(note: NoteController().previewNotes[0])
+        DetailView(note: noteWithRecordings)
             .environmentObject(NoteController())
             .environmentObject(AudioRecorder())
             .environmentObject(AudioPlayer())
     }
 }
+
+let noteWithRecordings = Note(title: "First Note", bodyText: "This is my first note, this is so cool. SwiftUI is awesome!", audioFilename: "audioFile1.mp3", category: "First Note", recordings: [
+    Recording(audioFileURL: URL(string: "a")!, textTranscript: "The quick brown fox jumps over the lazy dog.", duration: 23)
+])
