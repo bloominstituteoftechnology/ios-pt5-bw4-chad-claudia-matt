@@ -10,7 +10,7 @@ import Foundation
 
 struct Recording: Identifiable, Hashable, Codable {
     let id = UUID()
-    let audioFilename: String
+    let audioFileURL: URL
     let textTranscript: String
     let duration: Int
 }

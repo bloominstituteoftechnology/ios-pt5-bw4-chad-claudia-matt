@@ -15,16 +15,29 @@ struct RecordingsView: View {
     var body: some View {
         List {
             ForEach(note.recordings) { recording in
-                Button(action: {
-                    print("play")
-                }) {
-                    HStack {
-                        Image(systemName: "play.circle")
-                        Text(recording.textTranscript)
-                        Text(AudioPlayer.durationString(from: recording.duration))
-                            .padding(.leading)
-                    }
-                }
+                SingleRecordingView(recording: recording)
+            }
+        }
+    }
+}
+
+struct SingleRecordingView: View {
+
+    let recording: Recording
+
+    @EnvironmentObject var audioPlayer: AudioPlayer
+    @State private var isPlaying: Bool = false
+
+    var body: some View {
+        Button(action: {
+            self.isPlaying.toggle()
+            self.audioPlayer.loadAudio(url: self.recording.audioFileURL)
+        }) {
+            HStack {
+                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                Text(recording.textTranscript)
+                Text(AudioPlayer.durationString(from: recording.duration))
+                    .padding(.leading)
             }
         }
     }
