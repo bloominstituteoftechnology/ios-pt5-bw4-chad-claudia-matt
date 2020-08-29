@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
 
     @EnvironmentObject var noteController: NoteController
+    @EnvironmentObject var audioRecorder: AudioRecorder
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     var body: some View {
         
