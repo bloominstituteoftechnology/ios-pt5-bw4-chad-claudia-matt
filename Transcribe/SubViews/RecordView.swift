@@ -29,15 +29,9 @@ struct RecordView: View {
                         self.audioRecorder.toggleRecording()
                         if !self.audioRecorder.isRecording {
                             if let recordingURL = self.audioRecorder.recordingURL {
-                                print("url: \(recordingURL)")	
-                                Transcriber.requestTranscriptionPermissions { authorized in
-
-                                }
-                                Transcriber.transcribeAudioURL(recordingURL) { text in
-                                    self.note.recordings.append(
-                                        Recording(audioFileURL: recordingURL, textTranscript: text, duration: self.audioRecorder.duration)
-                                    )
-                                }
+                                self.note.recordings.append(
+                                    Recording(audioFileURL: recordingURL, duration: self.audioRecorder.duration)
+                                )
                             }
                         }
                     }
