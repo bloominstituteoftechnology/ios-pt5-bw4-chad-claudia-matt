@@ -123,7 +123,7 @@ struct DetailView: View {
         
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
-    
+
     func saveButton() {
         self.noteController.updateTitle(for: self.note, to: self.titleTextFieldContents)
         self.noteController.updateMessage(for: self.note, to: self.messageTextFieldContents)
@@ -131,13 +131,13 @@ struct DetailView: View {
         
         self.showingAlert = true
     }
-    
+
     func saveButton2() {
         let newNote = Note(title: titleTextFieldContents, bodyText: messageTextFieldContents, audioFilename: "", category: categoryTextFieldContents)
         self.noteController.add(newNote)
         self.showingAlert = true
     }
-    
+
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title
