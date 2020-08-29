@@ -29,22 +29,24 @@ struct DetailView: View {
                 VStack{
                     Form {
                         HStack {
-                            Text("   Title   ").bold()
+                            Text("     Title    ").bold()
                             Divider()
                             TextField("Enter Title", text: $titleTextFieldContents)
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
                             Text("Message").bold()
                             Divider()
                             TextView(text: $messageTextFieldContents).frame(numLines: 4)
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
                             Text("Category").bold()
                             Divider()
                             TextField("Enter Category", text: $categoryTextFieldContents)
-                            // needs placeholder
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
+                            Button(action: shareButton) {
+                                Text("Share Message")
+                            }
                             Spacer()
                             Button(action: saveButton2) {
                                 Text("Save")
@@ -52,13 +54,13 @@ struct DetailView: View {
                             .alert(isPresented: $showingAlert) {
                                 Alert(title: Text("\(note.title) is saved"), message: Text("You can continue editing"), dismissButton: .default(Text("Okay")))
                             }
-                        }
+                        }.buttonStyle(BorderlessButtonStyle())
                     }
                 }
             } else {
                 Form {
                     HStack {
-                        Text("   Title   ").bold()
+                        Text("     Title    ").bold()
                         Divider()
                         TextField("title", text: $titleTextFieldContents)
                     }.onAppear(perform: loadItemText)
@@ -73,13 +75,9 @@ struct DetailView: View {
                         TextField("category", text: $categoryTextFieldContents)
                     }.onAppear(perform: loadItemText)
                     HStack {
-                        //                    Button(action: shareButton) {
-                        //                        Image(systemName: "square.and.arrow.up")
-                        //                            .font(.headline)
-                        //                            .padding(10)
-                        //                            .font(.caption)
-                        //                            .foregroundColor(Color.blue)
-                        //                    }
+                        Button(action: shareButton) {
+                            Text("Share Message")
+                        }
                         Spacer()
                         Button(action: saveButton) {
                             Text("Save")
@@ -87,7 +85,7 @@ struct DetailView: View {
                         .alert(isPresented: $showingAlert) {
                             Alert(title: Text("\(note.title) is saved"), message: Text("You can continue editing"), dismissButton: .default(Text("Okay")))
                         }
-                    }
+                    }.buttonStyle(BorderlessButtonStyle())
                 }
             }
             Spacer()
@@ -125,6 +123,7 @@ struct DetailView: View {
         
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
+
     func saveButton() {
         self.noteController.updateTitle(for: self.note, to: self.titleTextFieldContents)
         self.noteController.updateMessage(for: self.note, to: self.messageTextFieldContents)
@@ -132,11 +131,13 @@ struct DetailView: View {
         
         self.showingAlert = true
     }
+
     func saveButton2() {
         let newNote = Note(title: titleTextFieldContents, bodyText: messageTextFieldContents, audioFilename: "", category: categoryTextFieldContents)
         self.noteController.add(newNote)
         self.showingAlert = true
     }
+
     func loadItemText() {
         messageTextFieldContents = note.bodyText
         titleTextFieldContents = note.title

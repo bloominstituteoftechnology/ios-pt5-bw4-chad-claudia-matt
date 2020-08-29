@@ -18,10 +18,10 @@ final class NoteController: ObservableObject {
     @Published var selectedNote: Note?
 
     @Published var previewNotes: [Note] = [
-        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "Misc."),
-        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "List"),
-        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "List"),
-        Note(title: "First Note", bodyText: "trying out transcribe app", audioFilename: "", category: "Misc."),
+        Note(title: "First Note", bodyText: "Trying out transcribe app", audioFilename: "", category: "Misc."),
+        Note(title: "First Note", bodyText: "Trying out transcribe app", audioFilename: "", category: "List"),
+        Note(title: "First Note", bodyText: "Trying out transcribe app", audioFilename: "", category: "List"),
+        Note(title: "First Note", bodyText: "Trying out transcribe app", audioFilename: "", category: "Misc."),
     ]
     
     static let saveKey = "SavedData"
@@ -33,7 +33,8 @@ final class NoteController: ObservableObject {
                 return
             }
         }
-        #warning("Uncomment this if we want to not use the premade notes")
+
+        //Uncomment this if we want to not use the premade notes
 //        self.previewNotes = []
     }
     
