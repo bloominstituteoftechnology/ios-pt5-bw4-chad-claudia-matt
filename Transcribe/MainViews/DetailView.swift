@@ -72,13 +72,9 @@ struct DetailView: View {
                         TextField("category", text: $categoryTextFieldContents)
                     }.onAppear(perform: loadItemText)
                     HStack {
-                        //                    Button(action: shareButton) {
-                        //                        Image(systemName: "square.and.arrow.up")
-                        //                            .font(.headline)
-                        //                            .padding(10)
-                        //                            .font(.caption)
-                        //                            .foregroundColor(Color.blue)
-                        //                    }
+                        Button(action: shareButton) {
+                            Text("Share Message")
+                        }
                         Spacer()
                         Button(action: saveButton) {
                             Text("Save")
@@ -86,7 +82,7 @@ struct DetailView: View {
                         .alert(isPresented: $showingAlert) {
                             Alert(title: Text("\(note.title) is saved"), message: Text("You can continue editing"), dismissButton: .default(Text("Okay")))
                         }
-                    }
+                    }.buttonStyle(BorderlessButtonStyle())
                 }
             }
             Spacer()
