@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RecordingsView: View {
 
-    let note: Note
+    @Binding var note: Note
 
     var body: some View {
         List {
@@ -50,7 +50,7 @@ struct SingleRecordingView: View {
 
 struct RecordingsView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordingsView(note: noteWithRecordings)
+        RecordingsView(note: .constant(noteWithRecordings))
             .previewLayout(.fixed(width: 414, height: 400))
     }
 }
