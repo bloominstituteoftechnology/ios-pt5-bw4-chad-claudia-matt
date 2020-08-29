@@ -13,6 +13,7 @@ struct TextView: UIViewRepresentable {
     
     typealias UIViewType = UITextView
     
+    var placeholderText: String = "Enter message"
     @Binding var text: String
     
     func makeUIView(context: Context) -> UITextView {
@@ -21,6 +22,9 @@ struct TextView: UIViewRepresentable {
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = .zero
         textView.font = UIFont.systemFont(ofSize: 17)
+        
+        textView.text = placeholderText
+        textView.textColor = .placeholderText
         
         return textView
     }
@@ -52,6 +56,20 @@ struct TextView: UIViewRepresentable {
         
         func textViewDidChange(_ textView: UITextView) {
             parent.text = textView.text
+        }
+        
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            if textView.textColor == .placeholderText {
+                textView.text = ""
+                textView.textColor = .label
+            }
+        }
+        
+        func textViewDidEndEditing(_ textView: UITextView) {
+            if textView.text == "" {
+                textView.text = parent.placeholderText
+                textView.textColor = .placeholderText
+            }
         }
     }
     
