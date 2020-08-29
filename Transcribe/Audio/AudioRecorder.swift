@@ -17,8 +17,9 @@ class AudioRecorder: NSObject, ObservableObject {
     @Published private(set) var elapsedTimeString = ""
     
     var recordingURL: URL?
-    var audioRecorder: AVAudioRecorder?
-    weak var timer: Timer?
+    var duration: Int { Int(audioRecorder?.currentTime ?? 0) }
+    private var audioRecorder: AVAudioRecorder?
+    private weak var timer: Timer?
 
     private lazy var timeIntervalFormatter: DateComponentsFormatter = {
         // NOTE: DateComponentFormatter is good for minutes/hours/seconds
