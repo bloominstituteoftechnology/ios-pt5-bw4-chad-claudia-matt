@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecordView: View {
 
+    @Binding var note: Note
     @EnvironmentObject var audioRecorder: AudioRecorder
 
     var body: some View {
@@ -53,7 +54,7 @@ struct RecordView: View {
 
 struct RecordingView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView()
+        RecordView(note: .constant(noteWithRecordings))
             .environmentObject(AudioRecorder())
             .previewLayout(PreviewLayout.fixed(width: 414, height: 200))
     }
