@@ -38,7 +38,7 @@ struct SingleRecordingView: View {
         }) {
             HStack {
                 Image(systemName: audioPlayer.isPlaying ? "pause.circle" : "play.circle")
-                Text(recording.textTranscript)
+                Text(recording.textTranscript ?? "")
                 Text(audioPlayer.isPlaying ?
                     audioPlayer.elapsedTimeString :
                     audioPlayer.durationString(from: recording.duration))
