@@ -9,72 +9,87 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Environment(\.editMode) var mode
     @EnvironmentObject var noteController: NoteController
     
     var note: Note
-    @State private var editText = false
+    
     @State private var isShareSheetShowing = false
+    @State private var showingAlert = false
+    
+    @State private var messageTextFieldContents = ""
+    @State private var titleTextFieldContents = ""
+    @State private var categoryTextFieldContents = ""
     
     var index: Int {return noteController.previewNotes.firstIndex(where: {$0.id == note.id})!}
     
     var body: some View {
+        
         VStack {
-            HStack {
-                Spacer()
-                EditButton()
-            }
-            ZStack(alignment: .bottomTrailing) {
-                Image("soundWave")
-                    .resizable()
-                    .frame(height: 150)
-                    .scaledToFit()
-                Button(action: {
-                    // Play sound
-                }) {
-                    Image(systemName: "play.fill")
-                        .font(.headline)
-                        .padding(4)
-                        .background(Color.black)
-                        .font(.caption)
-                        .foregroundColor(.white)
-                        .offset(x: -5, y: -5)
-                }
-            }
-            ZStack(alignment: .bottomTrailing) {
-                if self.mode?.wrappedValue == .inactive {
-                    Text(note.bodyText)
-                        .padding()
-                    HStack {
-                        Button(action: {
-                            // Edit Text
-                            self.editText.toggle()
-                        }) {
-                            Image(systemName: "pencil")
-                                .font(.headline)
-                                .padding(10)
-                                .background(Color.black)
-                                .font(.caption)
-                                .foregroundColor(.white)
-                                .offset(x: -5, y: 5)
-                        }
-                        Button(action: shareButton) {
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.headline)
-                                .padding(10)
-                                .background(Color.black)
-                                .font(.caption)
-                                .foregroundColor(.white)
-                                .offset(x: -5, y: 5)
-                        }.sheet(isPresented: $editText) {
-                            EditText(note: self.note).environmentObject(self.noteController)
+            if note.title == "New Note" {
+                VStack{
+                    Form {
+                        HStack {
+                            Text("   Title   ").bold()
+                            Divider()
+                            TextField("Enter Title", text: $titleTextFieldContents)
+                        }.onAppear(perform: loadItemText)
+                        HStack {
+                            Text("Message").bold()
+                            Divider()
+                            TextView(text: $messageTextFieldContents).frame(numLines: 4)
+                        }.onAppear(perform: loadItemText)
+                        HStack {
+                            Text("Category").bold()
+                            Divider()
+                            TextField("Enter Category", text: $categoryTextFieldContents)
+                            // needs placeholder
+                        }.onAppear(perform: loadItemText)
+                        HStack {
+                            Spacer()
+                            Button(action: saveButton2) {
+                                Text("Save")
+                            }
+                            .alert(isPresented: $showingAlert) {
+                                Alert(title: Text("\(note.title) is saved"), message: Text("You can continue editing"), dismissButton: .default(Text("Okay")))
+                            }
                         }
                     }
-                } else {
-                    EditText(note: note).environmentObject(noteController)
+                }
+            } else {
+                Form {
+                    HStack {
+                        Text("   Title   ").bold()
+                        Divider()
+                        TextField("title", text: $titleTextFieldContents)
+                    }.onAppear(perform: loadItemText)
+                    HStack {
+                        Text("Message").bold()
+                        Divider()
+                        TextView(text: $messageTextFieldContents).frame(numLines: 4)
+                    }.onAppear(perform: loadItemText)
+                    HStack {
+                        Text("Category").bold()
+                        Divider()
+                        TextField("category", text: $categoryTextFieldContents)
+                    }.onAppear(perform: loadItemText)
+                    HStack {
+                        //                    Button(action: shareButton) {
+                        //                        Image(systemName: "square.and.arrow.up")
+                        //                            .font(.headline)
+                        //                            .padding(10)
+                        //                            .font(.caption)
+                        //                            .foregroundColor(Color.blue)
+                        //                    }
+                        Spacer()
+                        Button(action: saveButton) {
+                            Text("Save")
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("\(note.title) is saved"), message: Text("You can continue editing"), dismissButton: .default(Text("Okay")))
+                        }
+                    }
                 }
             }
-            
             Spacer()
             Button(action: {
                 //record audio
@@ -86,6 +101,7 @@ struct DetailView: View {
         }
         .navigationBarTitle(Text(note.title), displayMode: .inline)
     }
+    
     
     func getDocumentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -108,7 +124,23 @@ struct DetailView: View {
         let av = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+    }
+    func saveButton() {
+        self.noteController.updateTitle(for: self.note, to: self.titleTextFieldContents)
+        self.noteController.updateMessage(for: self.note, to: self.messageTextFieldContents)
+        self.noteController.updateCategory(for: self.note, to: self.categoryTextFieldContents)
         
+        self.showingAlert = true
+    }
+    func saveButton2() {
+        let newNote = Note(title: titleTextFieldContents, bodyText: messageTextFieldContents, audioFilename: "", category: categoryTextFieldContents)
+        self.noteController.add(newNote)
+        self.showingAlert = true
+    }
+    func loadItemText() {
+        messageTextFieldContents = note.bodyText
+        titleTextFieldContents = note.title
+        categoryTextFieldContents = note.category
     }
 }
 
