@@ -32,18 +32,17 @@ struct DetailView: View {
                             Text("   Title   ").bold()
                             Divider()
                             TextField("Enter Title", text: $titleTextFieldContents)
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
                             Text("Message").bold()
                             Divider()
                             TextView(text: $messageTextFieldContents).frame(numLines: 4)
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
                             Text("Category").bold()
                             Divider()
                             TextField("Enter Category", text: $categoryTextFieldContents)
-                            // needs placeholder
-                        }.onAppear(perform: loadItemText)
+                        }
                         HStack {
                             Spacer()
                             Button(action: saveButton2) {
