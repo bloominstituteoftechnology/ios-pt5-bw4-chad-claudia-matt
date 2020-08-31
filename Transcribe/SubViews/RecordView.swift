@@ -11,6 +11,7 @@ import SwiftUI
 struct RecordView: View {
 
     @Binding var note: Note
+    @EnvironmentObject var noteController: NoteController
     @EnvironmentObject var audioRecorder: AudioRecorder
 
     var body: some View {
@@ -29,8 +30,9 @@ struct RecordView: View {
                         self.audioRecorder.toggleRecording()
                         if !self.audioRecorder.isRecording {
                             if let recordingURL = self.audioRecorder.recordingURL {
-                                self.note.recordings.append(
-                                    Recording(audioFileURL: recordingURL, duration: self.audioRecorder.duration)
+                                self.noteController.add(
+                                    recording: Recording(audioFileURL: recordingURL, duration: self.audioRecorder.duration),
+                                    to: self.note
                                 )
                             }
                         }
