@@ -90,6 +90,24 @@ final class NoteController: ObservableObject {
         
         return categorizedNotes
     }
+    
+    func add(recording: Recording, to note: Note) {
+        guard let noteIndex = previewNotes.firstIndex(where: { $0.id == note.id }) else {
+            fatalError("Existing note not found")
+        }
+        previewNotes[noteIndex].recordings.append(recording)
+
+        var mutableRecording = recording
+        Transcriber.transcribeAudioURL(recording.audioFileURL) { text in
+            mutableRecording.textTranscript = text
+            
+            guard let recordingIndex = self.previewNotes[noteIndex].recordings.firstIndex(where: { $0.id == mutableRecording.id }) else {
+                fatalError("Existing recording not found")
+            }
+            
+            self.previewNotes[noteIndex].recordings[recordingIndex] = mutableRecording
+        }
+    }
 }
 
 struct NoteController_Previews: PreviewProvider {
