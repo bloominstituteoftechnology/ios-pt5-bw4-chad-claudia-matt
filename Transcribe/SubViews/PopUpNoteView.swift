@@ -29,7 +29,7 @@ struct PopUpNoteView: View {
             
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    TextField("\(note.bodyText)", text: $editedBodyText)
+                    TextView(text: $editedBodyText).frame(numLines: 8)
                         .foregroundColor(Color(#colorLiteral(red: 0.8967368603, green: 0.8914062381, blue: 0.9008343816, alpha: 1)))
                 }.padding(.horizontal, 20)
                     .padding(.bottom, 20)
