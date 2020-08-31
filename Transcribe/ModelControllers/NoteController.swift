@@ -70,7 +70,7 @@ final class NoteController: ObservableObject {
     
     func updateCategory(for note: Note, to newCategory: String) {
         if let index = previewNotes.firstIndex(where: { $0.id == note.id }) {
-            previewNotes[index].title = newCategory
+            previewNotes[index].category = newCategory
             save()
         }
     }
