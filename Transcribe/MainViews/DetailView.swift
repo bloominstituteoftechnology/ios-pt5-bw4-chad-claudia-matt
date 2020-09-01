@@ -10,8 +10,9 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var noteController: NoteController
+    @EnvironmentObject var audioRecorder: AudioRecorder
     
-    @State var note: Note
+    var note: Note
     @State private var isShareSheetShowing = false
     @State private var showingAlert = false
     
@@ -88,11 +89,11 @@ struct DetailView: View {
                 }
             }
 
-            RecordingsView(note: $note)
+            RecordingsView(note: note)
                 .padding(.top)
             
             Spacer()
-            RecordView(note: $note)
+            RecordView(note: note)
         }
         .navigationBarTitle(Text(note.title), displayMode: .inline)
     }
