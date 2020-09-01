@@ -1,5 +1,4 @@
 # Transcribe Notes
-<img src="https://j.gifs.com/jZkjxY.gif" width="300" />
 This app allows you to create notes/reminders using either text or your voice. Your voice recordings can be transcribed into text for easy editing. Save multiple notes and they will be sorted via categories. You can also edit your previous notes as needed. 
 
 ## Project Images
