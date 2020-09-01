@@ -83,7 +83,8 @@ class AudioPlayer: NSObject, ObservableObject {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
         } catch {
-            preconditionFailure("Failure to load audio file: \(error)")
+            //preconditionFailure("Failure to load audio file: \(error)")
+            print("Failure to load audio file: \(error)")
         }
     }
     

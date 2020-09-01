@@ -93,7 +93,9 @@ final class NoteController: ObservableObject {
     
     func add(recording: Recording, to note: Note) {
         guard let noteIndex = previewNotes.firstIndex(where: { $0.id == note.id }) else {
-            fatalError("Existing note not found")
+            //fatalError("Existing note not found")
+            print("Existing note not found")
+            return
         }
         previewNotes[noteIndex].recordings.append(recording)
 
