@@ -106,7 +106,8 @@ final class NoteController: ObservableObject {
             guard let recordingIndex = self.previewNotes[noteIndex].recordings.firstIndex(where: { $0.id == mutableRecording.id }) else {
                 fatalError("Existing recording not found")
             }
-            
+
+            self.previewNotes[noteIndex].bodyText += "\n\(text)"
             self.previewNotes[noteIndex].recordings[recordingIndex] = mutableRecording
         }
     }
